@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "@webpack-cli/generators": "^2.4.1",
+    "css-loader": "^6.5.1",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "version": "1.0.0",
+  "description": "Website content for kalliomaki.me",
+  "name": "kalliomaki.me",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve",
+    "install-gcloud": "rm -rf gcloud && mkdir gcloud && curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-365.0.0-linux-x86_64.tar.gz | tar zxf - -C gcloud",
+    "deploy": "yarn build:prod && ./gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=gcloud-key.json && ./gcloud/google-cloud-sdk/bin/gsutil rsync -dr dist gs://kalliomaki.me"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "bulma": "^0.9.3"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules
+yarn-error.log
+
+/dist
+/gcloud
+/gcloud-key.json

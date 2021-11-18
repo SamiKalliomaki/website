@@ -1,0 +1,119 @@
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
+@import "bulma/sass/grid/columns.sass";
+@import "bulma/sass/elements/content.sass";
+@import "bulma/sass/layout/section.sass";
+
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+$sidebar-width: 256px;
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    color: #124e89;
+}
+
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {    
+    padding: 8px 0px 8px 0px;
+    background-color: #333;
+}
+
+.header h1 {
+    display: inline-block;
+    padding: 0px 0px 0px 16px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+
+    @include from($tablet) {
+        width: $sidebar-width+16px;
+    }
+}
+
+.menu {
+    margin: 0px 8px 0px 8px;
+}
+
+.menu-item {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0px 8px 0px 8px;
+}
+
+.menu-item.active {
+    color: #fff;
+}
+
+.sidebar {
+    background-color: lightgrey;
+    flex-basis: $sidebar-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 14px;
+    padding: 16px;
+}
+
+.sidebar > :first-child {
+    margin-top: 0;
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 4px 0px 0px 0px;
+}
+
+.sidebar {
+    ul {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+
+        li {
+            margin-top: 0.25em;
+            margin-bottom: 0.25em;
+        }
+    }
+}
+
+.sidebar-section {
+    margin: 32px 0px 0px 0px;
+}
+
+.main-container {
+    flex-grow: 1;
+    margin: 0 !important;
+    align-items: stretch;
+}
+
+.page-container > .section:first-child {
+    padding-top: 0;
+    flex-grow: 1;
+}
+
+.page-title {
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.content > {
+    h1, h2, h3 {
+        font-weight: 400;
+    }
+}
