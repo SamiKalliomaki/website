@@ -1,0 +1,37 @@
+name: Deploy to gcloud
+
+on:
+  push:
+    branches: [ live ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 16
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Install gcloud
+        run: yarn install-gcloud
+
+      - name: Write secret
+        run: 'echo "$GCLOUD_DEPLOY_KEY" > gcloud-key.json'
+      
+      - name: Authenticate
+        run: 'gcloud auth activate-service-account --key-file=gcloud-key.json'
+        
+      - name: Deploy
+        run: yarn deploy
+
+      - name: Deauthenticate
+        run: 'gcloud auth revoke --all'
