@@ -18,6 +18,8 @@
   "version": "1.0.0",
   "description": "Website content for kalliomaki.me",
   "name": "kalliomaki.me",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
