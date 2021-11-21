@@ -27,7 +27,7 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "install-gcloud": "rm -rf gcloud && mkdir gcloud && curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-365.0.0-linux-x86_64.tar.gz | tar zxf - -C gcloud",
-    "deploy": "yarn build:prod && ./gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=gcloud-key.json && ./gcloud/google-cloud-sdk/bin/gsutil -m rsync -dr dist gs://kalliomaki.me"
+    "deploy": "yarn build:prod && ./gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=gcloud-key.json && ./gcloud/google-cloud-sdk/bin/gsutil -m rsync -dr dist gs://kalliomaki-bucket"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
