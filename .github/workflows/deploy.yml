@@ -21,16 +21,10 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Install gcloud
-        run: yarn install-gcloud
-
       - name: Write secret
-        run: 'echo "$GCLOUD_DEPLOY_KEY" > gcloud-key.json'
+        run: 'echo "$ID_RSA_DEPLOY" > ssh/id_rsa_deploy && chmod 600 ssh/id_rsa_deploy'
         env:
-          GCLOUD_DEPLOY_KEY: ${{secrets.GCLOUD_DEPLOY_KEY}}
-      
-      - name: Authenticate
-        run: 'gcloud auth activate-service-account --key-file=gcloud-key.json'
+          ID_RSA_DEPLOY: ${{secrets.ID_RSA_DEPLOY}}
         
       - name: Deploy
         run: yarn deploy
