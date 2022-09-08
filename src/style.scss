@@ -112,6 +112,14 @@ a {
     font-size: 32px;
 }
 
+.content {
+    max-width: 70rem;
+
+    @include from($tablet) {
+        text-align: justify;
+    }
+}
+
 .content > {
     h1, h2, h3 {
         font-weight: 400;
