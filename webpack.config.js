@@ -5,7 +5,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
+const htmlWebpackPluginOptions = {
+  scriptLoading: 'blocking',
+};
+
 const pages = fs.readdirSync('pages').map(file => new HtmlWebpackPlugin({
+  ...htmlWebpackPluginOptions,
   filename: file == 'index.hbs' ?
     'index.html' : `${path.basename(file, '.hbs')}/index.html`,
   template: `pages/${file}`
@@ -25,6 +30,7 @@ const config = {
   plugins: [
     ...pages,
     new HtmlWebpackPlugin({
+      ...htmlWebpackPluginOptions,
       filename: '404.html',
       template: 'template/404.hbs'
     }),
