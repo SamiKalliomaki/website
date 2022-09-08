@@ -16,6 +16,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: '/',
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   devServer: {
     open: true,
